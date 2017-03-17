@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+data:
+  redis-dot-conf: |
+    bind BIND
+    port 6379
+    protected-mode no
+    dir DIR
+    appendonly yes
+    appendfsync always
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sentinel-config
+data:
+  sentinel-dot-conf: |
+    bind BIND
+    port 26379
+    sentinel monitor MASTER_NAME MASTER_ADDRESS 6379 QUORUM
+    sentinel down-after-milliseconds MASTER_NAME 10000
+    sentinel parallel-syncs MASTER_NAME 1
+    sentinel failover-timeout MASTER_NAME 60000
