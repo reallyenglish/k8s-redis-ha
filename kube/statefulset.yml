@@ -19,7 +19,7 @@ kind: StatefulSet
 metadata:
   name: rds
 spec:
-  serviceName: redis
+  serviceName: redis-ha
   replicas: 3
   template:
     metadata:
