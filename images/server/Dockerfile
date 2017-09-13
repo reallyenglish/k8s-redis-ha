@@ -1,4 +1,4 @@
-FROM redis:3.2.8
+FROM redis:3.2.10
 
 ADD ["https://github.com/ochko/lookup-srv/releases/download/v1.0.0/lookup-srv-linux-amd64", "/usr/local/bin/lookup-srv"]
 RUN chmod +x /usr/local/bin/lookup-srv
